@@ -30,10 +30,6 @@ const Home = () => {
                     content="Brandon de Vries. Front-end developer."
                 />
                 <meta property="og:site_name" content="Brandon's Portfolio" />
-                <link
-                    href="https://fonts.googleapis.com/css?family=Lato|Playfair+Display"
-                    rel="stylesheet"
-                />
             </Head>
 
             <header className="header">
