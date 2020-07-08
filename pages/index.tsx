@@ -1,10 +1,5 @@
-import Head from "next/head";
+// import Head from "next/head";
 import React from "react";
-import Particles, {
-    OutMode,
-    MoveDirection,
-    InteractivityDetect,
-} from "react-particles-js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faTwitch,
@@ -12,12 +7,13 @@ import {
     faLinkedin,
     faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { Header } from "components/Header";
 
 const Home = () => {
     return (
         <>
-            <Head>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+            {/* <Head>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
@@ -30,71 +26,11 @@ const Home = () => {
                     content="Brandon de Vries. Front-end developer."
                 />
                 <meta property="og:site_name" content="Brandon's Portfolio" />
-            </Head>
+            </Head> */}
+
+            <Header></Header>
 
             <header className="header">
-                <Particles
-                    className="header__particles"
-                    params={{
-                        detectRetina: true,
-                        fpsLimit: 60,
-                        interactivity: {
-                            detectsOn: InteractivityDetect.canvas,
-                            events: {
-                                onClick: {
-                                    enable: true,
-                                    mode: "push",
-                                },
-                                resize: true,
-                            },
-                            modes: {
-                                push: {
-                                    quantity: 2,
-                                },
-                            },
-                        },
-                        particles: {
-                            color: {
-                                value: "#2e42c5",
-                            },
-                            links: {
-                                blink: true,
-                                color: {
-                                    value: "#4f5b60",
-                                },
-                                distance: 200,
-                                enable: true,
-                                opacity: 0.4,
-                                width: 0.5,
-                            },
-                            move: {
-                                direction: MoveDirection.none,
-                                enable: true,
-                                outMode: OutMode.out,
-                                random: true,
-                                speed: 2,
-                            },
-                            number: {
-                                density: {
-                                    enable: true,
-                                    area: 800,
-                                    factor: 1000,
-                                },
-                                limit: 0,
-                                value: 80,
-                            },
-                            opacity: {
-                                random: true,
-                                value: 0.5,
-                            },
-                            size: {
-                                random: true,
-                            },
-                        },
-                        pauseOnBlur: true,
-                    }}
-                />
-
                 <div className="header__container">
                     <h1 className="header__title">Brandon de Vries</h1>
                     <h2 className="header__sub-title">Front-end developer</h2>
