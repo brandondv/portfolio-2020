@@ -30,13 +30,14 @@
     }
 
     &__title {
-        font-size: 5rem;
+        font-size: 6rem;
         margin: 2rem 0 1rem;
         color: $color-green;
+        font-family: "Norican", cursive;
     }
 
     &__text {
-        font-size: 1.8rem;
+        font-size: 2.4rem;
         max-width: 100%;
         width: 35rem;
         display: inline-block;
@@ -49,9 +50,8 @@
         margin: 3rem auto 0;
         display: inline-block;
         padding: 1rem 2.5rem;
-        border-radius: 2.2rem;
-        font-size: 1.6rem;
-        font-weight: 100;
+        border-radius: 1rem;
+        font-size: 2.4rem;
         background-color: $color-green;
         color: $color-white;
         appearance: none;
