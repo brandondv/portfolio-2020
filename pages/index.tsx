@@ -1,16 +1,13 @@
-// import Head from "next/head";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faTwitch,
-    faGithub,
-    faLinkedin,
-    faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import { Header } from "components/Header";
-import { Head } from "next/document";
 
 const Home = () => {
+    React.useEffect(() => {
+        // Fixing the view height for mobile
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, []);
+
     return (
         <>
             <Header />
