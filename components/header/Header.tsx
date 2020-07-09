@@ -7,7 +7,7 @@ import { Column } from "./Column";
 import { ColorsBackground } from "./ColorsBackground";
 import { ColumnSide } from "./ColumnSide";
 import { TextContainer } from "./TextContainer";
-import { Container } from "./container";
+import { Container } from "./Container";
 import { SubTitle } from "./SubTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
