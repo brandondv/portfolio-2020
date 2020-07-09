@@ -1,45 +1,58 @@
 import React from "react";
 import styled from "styled-components";
-import { mediaQuery, size } from "styles/mediaQuery";
+import { mediaQuery } from "styles/mediaQuery";
+import HeaderLink from "./HeaderLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faGithub,
+    faTwitter,
+    faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const StyledHeader = styled.div`
+    position: relative;
+`;
+
+const TextContainer = styled.div`
+    position: absolute;
+    top: calc(50% + 8rem);
+    width: 100%;
+    text-align: center;
+`;
+
+const SubTitle = styled.h2`
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    letter-spacing: 0.5rem;
+    font-size: 1.6rem;
+    margin: 0 auto 4rem;
+
+    @media ${mediaQuery.xs} {
+        font-size: 2rem;
+    }
+    @media ${mediaQuery.sm} {
+        font-size: 3rem;
+    }
+    @media ${mediaQuery.md} {
+        font-size: 4rem;
+    }
+    @media ${mediaQuery.lg} {
+        font-size: 5rem;
+    }
+    @media ${mediaQuery.xl} {
+        font-size: 6rem;
+    }
+    @media ${mediaQuery.xxl} {
+        font-size: 8rem;
+    }
+`;
+
+const ColorsBackground = styled.div`
     min-height: 100vh;
     display: flex;
     position: relative;
-
-    &::after {
-        content: "Frontend developer";
-        position: absolute;
-        display: block;
-        top: calc(50% + 8rem);
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-family: "Raleway", sans-serif;
-        font-weight: 200;
-        font-style: italic;
-        letter-spacing: 0.5rem;
-        font-size: 1.6rem;
-
-        @media ${mediaQuery.xs} {
-            font-size: 2rem;
-        }
-        @media ${mediaQuery.sm} {
-            font-size: 3rem;
-        }
-        @media ${mediaQuery.md} {
-            font-size: 4rem;
-        }
-        @media ${mediaQuery.lg} {
-            font-size: 5rem;
-        }
-        @media ${mediaQuery.xl} {
-            font-size: 6rem;
-        }
-        @media ${mediaQuery.xxl} {
-            font-size: 8rem;
-        }
-    }
 `;
 
 const Container = styled.div`
@@ -124,6 +137,14 @@ const StyledHeaderLetter = styled.div`
     }
 `;
 
+const HeaderLinks = styled.ul`
+    padding: 0;
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 const colors = [
     "#66BB6A",
     "#26A69A",
@@ -139,19 +160,38 @@ const name = "BRANDON";
 export const Header = () => {
     return (
         <StyledHeader>
-            <Side bgColor={colors[0]} />
-            <Container>
-                {colors.map((color, index) => {
-                    return (
-                        <StyledHeaderColumn key={color} bgColor={color}>
-                            <StyledHeaderLetter>
-                                {name.charAt(index)}
-                            </StyledHeaderLetter>
-                        </StyledHeaderColumn>
-                    );
-                })}
-            </Container>
-            <Side bgColor={colors[colors.length - 1]} />
+            <ColorsBackground>
+                <Side bgColor={colors[0]} />
+                <Container>
+                    {colors.map((color, index) => {
+                        return (
+                            <StyledHeaderColumn key={color} bgColor={color}>
+                                <StyledHeaderLetter>
+                                    {name.charAt(index)}
+                                </StyledHeaderLetter>
+                            </StyledHeaderColumn>
+                        );
+                    })}
+                </Container>
+                <Side bgColor={colors[colors.length - 1]} />
+            </ColorsBackground>
+            <TextContainer>
+                <SubTitle>Frontend developer</SubTitle>
+                <HeaderLinks>
+                    <HeaderLink href="//twitter.com/bdv95" target="_blank">
+                        <FontAwesomeIcon icon={faTwitter} fixedWidth />
+                    </HeaderLink>
+                    <HeaderLink
+                        href="//linkedin.com/in/brandondv/"
+                        target="_blank"
+                    >
+                        <FontAwesomeIcon icon={faLinkedin} fixedWidth />
+                    </HeaderLink>
+                    <HeaderLink href="//github.com/brandondv" target="_blank">
+                        <FontAwesomeIcon icon={faGithub} fixedWidth />
+                    </HeaderLink>
+                </HeaderLinks>
+            </TextContainer>
         </StyledHeader>
     );
 };
