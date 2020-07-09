@@ -5,7 +5,7 @@ import styled, {
 } from "styled-components";
 import { mediaQuery } from "styles/mediaQuery";
 
-const StyledListItem = styled.li`
+const ListItem = styled.li`
     display: inline-block;
 
     & + & {
@@ -38,12 +38,12 @@ const StyledLink = styled.a`
     }
 `;
 
-export const HeaderLink: React.FC<StyledComponentInnerAttrs<
-    AnyStyledComponent
->> = (props) => {
+export const Link: React.FC<StyledComponentInnerAttrs<AnyStyledComponent>> = (
+    props
+) => {
     return (
-        <StyledListItem>
+        <ListItem>
             <StyledLink {...props}></StyledLink>
-        </StyledListItem>
+        </ListItem>
     );
 };

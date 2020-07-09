@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "components/Header";
+import { Header } from "components/header/Header";
 
 const Home = () => {
     React.useEffect(() => {
@@ -16,8 +16,8 @@ const Home = () => {
                 // Put the portfolio pieces here.
             </main> */}
 
-            <div className="footer__wrapper">
-                <footer className="footer">
+            <footer className="footer">
+                <div className="footer__wrapper">
                     <div className="footer__container">
                         <img src="/ava.jpg" className="footer__image" />
                         <h2 className="footer__title">Who the?</h2>
@@ -36,8 +36,8 @@ const Home = () => {
                             Say Hello
                         </a>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
         </>
     );
 };
