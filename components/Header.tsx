@@ -11,7 +11,7 @@ const StyledHeader = styled.div`
         content: "Frontend developer";
         position: absolute;
         display: block;
-        top: calc(65% - 0.2em);
+        top: calc(50% + 8rem);
         width: 100%;
         text-align: center;
         color: white;
@@ -53,6 +53,13 @@ const Container = styled.div`
 const Side = styled.div`
     flex: 1 1 0;
     background-color: ${({ bgColor }) => bgColor};
+
+    &:last-of-type {
+        flex-grow: 4;
+        @media ${mediaQuery.xxl} {
+            flex-grow: 1;
+        }
+    }
 `;
 
 const StyledHeaderColumn = styled.div`
@@ -61,6 +68,11 @@ const StyledHeaderColumn = styled.div`
     position: relative;
     overflow: hidden;
     box-shadow: -1rem 0 1rem 0 rgba(0, 0, 0, 0.1);
+    transition: flex-grow 0.2s ease-in-out;
+
+    &:hover {
+        flex-grow: 1.4;
+    }
 
     &:first-child {
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);
