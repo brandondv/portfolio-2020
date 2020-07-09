@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { mediaQuery } from "styles/mediaQuery";
-import HeaderLink from "./HeaderLink";
+import { HeaderLink } from "./HeaderLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faGithub,
@@ -66,7 +66,7 @@ const Container = styled.div`
 
 const Side = styled.div`
     flex: 1 1 0;
-    background-color: ${({ bgColor }) => bgColor};
+    background-color: ${({ bgColor }: { bgColor: string }) => bgColor};
 
     &:last-of-type {
         flex-grow: 4;
@@ -78,7 +78,7 @@ const Side = styled.div`
 
 const StyledHeaderColumn = styled.div`
     flex: 1 1 0;
-    background-color: ${({ bgColor }) => bgColor};
+    background-color: ${({ bgColor }: { bgColor: string }) => bgColor};
     position: relative;
     overflow: hidden;
     box-shadow: -1rem 0 1rem 0 rgba(0, 0, 0, 0.1);

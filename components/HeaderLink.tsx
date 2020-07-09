@@ -1,5 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {
+    AnyStyledComponent,
+    StyledComponentInnerAttrs,
+} from "styled-components";
 import { mediaQuery } from "styles/mediaQuery";
 
 const StyledListItem = styled.li`
@@ -35,10 +38,12 @@ const StyledLink = styled.a`
     }
 `;
 
-export default function HeaderLink(props) {
+export const HeaderLink: React.FC<StyledComponentInnerAttrs<
+    AnyStyledComponent
+>> = (props) => {
     return (
         <StyledListItem>
             <StyledLink {...props}></StyledLink>
         </StyledListItem>
     );
-}
+};
