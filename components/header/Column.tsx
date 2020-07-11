@@ -8,8 +8,8 @@ export const Column = styled(motion.div)`
     position: relative;
     overflow: hidden;
     box-shadow: -1rem 0 1rem 0 rgba(0, 0, 0, 0.1);
-    margin-right: -2rem;
-    padding-right: 2rem;
+    margin-right: -10rem;
+    padding-right: 10rem;
 
     &:first-child {
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);

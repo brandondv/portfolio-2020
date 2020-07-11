@@ -13,28 +13,35 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const StyledHeader = styled.div`
-    position: relative;
+    position: fixed;
     z-index: 1;
+    width: 100%;
 `;
 
 export const Header: React.FC = () => {
     return (
-        <StyledHeader>
-            <ColorsBackground />
-            <TextContainer>
-                <SubTitle>Frontend developer</SubTitle>
-                <LinkList>
-                    <Link href="//twitter.com/bdv95" target="_blank">
-                        <FontAwesomeIcon icon={faTwitter} fixedWidth />
-                    </Link>
-                    <Link href="//linkedin.com/in/brandondv/" target="_blank">
-                        <FontAwesomeIcon icon={faLinkedin} fixedWidth />
-                    </Link>
-                    <Link href="//github.com/brandondv" target="_blank">
-                        <FontAwesomeIcon icon={faGithub} fixedWidth />
-                    </Link>
-                </LinkList>
-            </TextContainer>
-        </StyledHeader>
+        <>
+            <StyledHeader>
+                <ColorsBackground />
+                <TextContainer>
+                    <SubTitle>Frontend developer</SubTitle>
+                    <LinkList>
+                        <Link href="//twitter.com/bdv95" target="_blank">
+                            <FontAwesomeIcon icon={faTwitter} fixedWidth />
+                        </Link>
+                        <Link
+                            href="//linkedin.com/in/brandondv/"
+                            target="_blank"
+                        >
+                            <FontAwesomeIcon icon={faLinkedin} fixedWidth />
+                        </Link>
+                        <Link href="//github.com/brandondv" target="_blank">
+                            <FontAwesomeIcon icon={faGithub} fixedWidth />
+                        </Link>
+                    </LinkList>
+                </TextContainer>
+            </StyledHeader>
+            <div style={{ height: "5rem" }}></div>
+        </>
     );
 };
