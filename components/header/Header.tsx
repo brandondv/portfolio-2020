@@ -2,47 +2,68 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "./Link";
 import { LinkList } from "./LinkList";
-import { Letter } from "./Letter";
-import { Column } from "./Column";
 import { ColorsBackground } from "./ColorsBackground";
-import { ColumnSide } from "./ColumnSide";
 import { TextContainer } from "./TextContainer";
-import { Container } from "./Container";
-import { SubTitle } from "./SubTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SubTitle } from "./SubTitle";
 import {
     faGithub,
     faTwitter,
     faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { colors } from "styles/colors";
+import {
+    motion,
+    useAnimation,
+    useViewportScroll,
+    Variants,
+} from "framer-motion";
 
-const StyledHeader = styled.div`
-    position: relative;
+const StyledHeader = styled(motion.div)`
+    position: fixed;
     z-index: 1;
+    width: 100%;
 `;
 
-const name = "BRANDON";
-
 export const Header: React.FC = () => {
+    const controls = useAnimation();
+    const { scrollY } = useViewportScroll();
+
+    React.useEffect(() => {
+        scrollY.onChange((yPosition) => {
+            controls.start(yPosition ? "hidden" : "shown");
+        });
+    }, []);
+
+    const textParts: Variants = {
+        shown: {
+            opacity: 1,
+            pointerEvents: "auto",
+        },
+        hidden: {
+            opacity: 0,
+            pointerEvents: "none",
+        },
+    };
+
+    const headerPart: Variants = {
+        shown: {
+            pointerEvents: "auto",
+        },
+        hidden: {
+            pointerEvents: "none",
+        },
+    };
+
     return (
-        <StyledHeader>
-            <ColorsBackground>
-                <ColumnSide bgColor={colors[0]} />
-                <Container>
-                    {colors.map((color, index) => {
-                        return (
-                            <Column key={color} bgColor={color}>
-                                <Letter>{name.charAt(index)}</Letter>
-                            </Column>
-                        );
-                    })}
-                </Container>
-                <ColumnSide bgColor={colors[colors.length - 1]} />
-            </ColorsBackground>
+        <StyledHeader
+            animate={controls}
+            initial={scrollY.get() ? "hidden" : "shown"}
+            variants={headerPart}
+        >
+            <ColorsBackground />
             <TextContainer>
-                <SubTitle>Frontend developer</SubTitle>
-                <LinkList>
+                <SubTitle variants={textParts}>Frontend developer</SubTitle>
+                <LinkList variants={textParts}>
                     <Link href="//twitter.com/bdv95" target="_blank">
                         <FontAwesomeIcon icon={faTwitter} fixedWidth />
                     </Link>
