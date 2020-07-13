@@ -6,6 +6,10 @@ export const ColumnSide = styled.div`
     background-color: ${({ bgColor }: { bgColor: string }) => bgColor};
 
     &:last-of-type {
-        margin-left: 5rem;
+        margin-left: 2rem;
+
+        @media ${mediaQuery.xl} {
+            margin-left: 5rem;
+        }
     }
 `;

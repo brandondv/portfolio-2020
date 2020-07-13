@@ -17,37 +17,18 @@ const Wrapper = styled.div`
 export const ColorsBackground: React.FC = () => {
     const name = "BRANDON";
 
-    const controls = useAnimation();
-    const { scrollY } = useViewportScroll();
-
-    React.useEffect(() => {
-        scrollY.onChange((v) => {
-            if (v < 20) {
-                controls.start("shown");
-            } else {
-                controls.start("hidden");
-            }
-        });
-    }, []);
-
     const variants: Variants = {
-        shown: (i: number) => {
-            return {
-                y: 0,
-            };
-        },
-        hidden: (i: number) => {
-            return {
-                y: "-99%",
-                transition: {
-                    duration: 1,
-                    delay: i * 0.03,
-                },
-            };
-        },
+        shown: (i: number) => ({
+            y: 0,
+        }),
+        hidden: (i: number) => ({
+            y: "-99%",
+            transition: {
+                duration: 1,
+                delay: i * 0.03,
+            },
+        }),
     };
-
-    debugger;
 
     return (
         <Wrapper>
@@ -59,8 +40,6 @@ export const ColorsBackground: React.FC = () => {
                         <Column
                             key={color}
                             bgColor={color}
-                            animate={controls}
-                            initial={scrollY.get() ? "shown" : "hidden"}
                             custom={index}
                             variants={variants}
                         >

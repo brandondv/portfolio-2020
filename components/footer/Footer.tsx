@@ -8,7 +8,8 @@ import { FooterTitle } from "./FooterTitle";
 
 const StyledFooter = styled.footer`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 6rem 0 4rem;
     text-align: center;
 
     display: flex;

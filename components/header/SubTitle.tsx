@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { mediaQuery } from "styles/mediaQuery";
+import { motion } from "framer-motion";
 
-export const SubTitle = styled.h2`
+export const SubTitle = styled(motion.h2)`
     color: white;
     font-family: "Norican", cursive;
     font-weight: 200;
