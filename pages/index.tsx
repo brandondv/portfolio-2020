@@ -2,9 +2,15 @@ import React from "react";
 import { Header } from "components/header/Header";
 import { Footer } from "components/footer/Footer";
 import { ColorLine } from "components/ColorLine";
+import ReactGA from "react-ga";
 
 const Home = () => {
     React.useEffect(() => {
+        if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID) {
+            ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID);
+            ReactGA.pageview(window.location.pathname);
+        }
+
         window.scrollTo(0, 0);
 
         // Fixing the view height for mobile
